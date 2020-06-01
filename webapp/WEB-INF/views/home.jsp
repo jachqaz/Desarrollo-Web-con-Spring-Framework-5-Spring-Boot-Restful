@@ -6,36 +6,58 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Bienvenido a Cineapp</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
-<h1>Lista de Peliculas</h1>
+<%--<h1>Lista de Peliculas</h1>--%>
 <%--<ul>--%>
 <%--    <c:forEach items="${peliculas}" var="pelicula">--%>
 <%--        <li>${pelicula}</li>--%>
 <%--    </c:forEach>--%>
 <%--</ul>--%>
-Tabla de peliculas
-<table border="1">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Titulo</th>
-        <th>Duracion</th>
-        <th>Clasificacion</th>
-        <th>Genero</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${peliculas}" var="pelicula">
-        <tr>
-            <td>${pelicula.id}</td>
-            <td>${pelicula.titulo}</td>
-            <td>${pelicula.duracion}</td>
-            <td>${pelicula.clasificacion}</td>
-            <td>${pelicula.genero}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<div class="card">
+    <div class="card-header">Tabla de peliculas</div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Duracion</th>
+                <th>Clasificacion</th>
+                <th>Genero</th>
+                <th>Imagen</th>
+                <th>Fecha Estrno</th>
+                <th>Estatus</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${peliculas}" var="pelicula">
+                <tr>
+                    <td>${pelicula.id}</td>
+                    <td>${pelicula.titulo}</td>
+                    <td>${pelicula.duracion}</td>
+                    <td>${pelicula.clasificacion}</td>
+                    <td>${pelicula.genero}</td>
+                    <td>${pelicula.imagen}</td>
+                    <td>${pelicula.fechaEstreno}</td>
+                    <td>${pelicula.estatus}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
