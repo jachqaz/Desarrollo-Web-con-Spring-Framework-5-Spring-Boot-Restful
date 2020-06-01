@@ -9,10 +9,33 @@
 </head>
 <body>
 <h1>Lista de Peliculas</h1>
-<ul>
+<%--<ul>--%>
+<%--    <c:forEach items="${peliculas}" var="pelicula">--%>
+<%--        <li>${pelicula}</li>--%>
+<%--    </c:forEach>--%>
+<%--</ul>--%>
+Tabla de peliculas
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Duracion</th>
+        <th>Clasificacion</th>
+        <th>Genero</th>
+    </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${peliculas}" var="pelicula">
-        <li>${pelicula}</li>
+        <tr>
+            <td>${pelicula.id}</td>
+            <td>${pelicula.titulo}</td>
+            <td>${pelicula.duracion}</td>
+            <td>${pelicula.clasificacion}</td>
+            <td>${pelicula.genero}</td>
+        </tr>
     </c:forEach>
-</ul>
+    </tbody>
+</table>
 </body>
 </html>
