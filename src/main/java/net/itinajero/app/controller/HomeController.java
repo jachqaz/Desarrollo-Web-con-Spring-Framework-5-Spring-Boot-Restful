@@ -1,6 +1,7 @@
 package net.itinajero.app.controller;
 
 import net.itinajero.app.model.Pelicula;
+import net.itinajero.app.util.Utileria;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +27,12 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String mostrarPrincipal(Model model) {
         List<Pelicula> peliculas = getLista();
+        List<String> listaFechas = Utileria.getNextDays(4);
 //        List<String> peliculas = new LinkedList<>();
 //        peliculas.add("Rapido y furioso");
 //        peliculas.add("El aro 2");
 //        peliculas.add("Aliens");
+        model.addAttribute("fechas", listaFechas);
         model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
         model.addAttribute("peliculas", peliculas);
         return "home";
