@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 @Controller
 public class HomeController {
+
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String goHome() {
@@ -27,19 +30,21 @@ public class HomeController {
 //        peliculas.add("Rapido y furioso");
 //        peliculas.add("El aro 2");
 //        peliculas.add("Aliens");
+        model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
         model.addAttribute("peliculas", peliculas);
         return "home";
     }
 
-    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    public String mostrarDetalle(Model model, @PathVariable("id") int idPelicula) {
-        System.out.println("idPelicula" + idPelicula);
-        String tituloPelicula = "Rapidos y furiosos";
-        int duracion = 136;
-        double precioEntrada = 50;
-        model.addAttribute("titutlo", tituloPelicula);
-        model.addAttribute("duracion", duracion);
-        model.addAttribute("precio", precioEntrada);
+    @RequestMapping(value = "/detail/{id}/{fecha}", method = RequestMethod.GET)
+    public String mostrarDetalle(Model model, @PathVariable("id") int idPelicula, @PathVariable String fecha) {
+        System.out.println("Buscando Horrios para la pelicula" + idPelicula);
+//        System.out.println("Para la fecha" + fecha);
+//        String tituloPelicula = "Rapidos y furiosos";
+//        int duracion = 136;
+//        double precioEntrada = 50;
+//        model.addAttribute("titutlo", tituloPelicula);
+//        model.addAttribute("duracion", duracion);
+//        model.addAttribute("precio", precioEntrada);
         return "detalle";
     }
 
