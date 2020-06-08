@@ -24,6 +24,12 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String buscar(@RequestParam("fecha") String fecha) {
+        System.out.println("Buscando todas las peliculas en exhibicion para la fecha: " + fecha);
+        return "home";
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String mostrarPrincipal(Model model) {
         List<Pelicula> peliculas = getLista();
